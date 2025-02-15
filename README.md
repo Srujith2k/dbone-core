@@ -1,2 +1,18 @@
-# dbone-core
-DBOne is a powerful and flexible Java-based library designed to connect with various databases seamlessly. It provides a ready-to-use JAR file that can be integrated into any Java project to manage database connections efficiently. 
+# DBOne Project
+
+## Vision
+
+DBOne is a Java-based library designed to provide a seamless connection to multiple databases (e.g., MySQL, PostgreSQL, MSSQL) without the need for developers to manually load drivers, construct URLs, or configure connections.
+
+## Scope
+
+### Core Features:
+- **Database Connectivity**: Simplify connections to MySQL, PostgreSQL, MSSQL.
+- **Dynamic URL Generation**: Automatically generate database URLs from configuration.
+- **Security**: Encrypt and handle database passwords securely.
+- **Logging**: Provide logging for database connections and queries.
+- **Caching**: Cache frequent queries and their results.
+- **Extensibility**: Easily extendable to add support for additional databases or reporting tools.
+
+### Users:
+DBOne is aimed at developers who want to simplify database integration and reduce repetitive boilerplate code.
