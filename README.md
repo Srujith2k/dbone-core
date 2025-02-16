@@ -53,13 +53,6 @@ To use **DBOne-Core** in your project, add the following dependency to your `pom
     <version>1.0.0</version>
 </dependency>
 ```
-### Gradle
-For Gradle users, add this to your build.gradle:
-```xml
-dependencies {
-        implementation 'com.acender.dbone:dbone-core:1.0.0'
-        }
-```
 ## 📖 Usage
 ### 1. Establishing a Connection
 ```xml
