@@ -25,7 +25,7 @@ class ExceptionHandlingTest {
     @Test
     void testQueryExecutionException() {
         Exception exception = assertThrows(QueryExecutionException.class, () -> {
-            DBConnection connection = DBConnectionFactory.getConnection("mysql", "localhost", "3306", "testdb", "user", "password");
+            DBConnection connection = DBConnectionFactory.getConnection("postgresql", "localhost", "5432", "testDB", "postgres", "root");
             connection.connect();
             QueryExecutor.executeQuery(connection, "INVALID SQL QUERY");
         });

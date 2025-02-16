@@ -21,7 +21,7 @@ class QueryExecutorTest {
     @BeforeEach
     void setUp() throws SQLException {
         connection = DBConnectionFactory.getConnection(
-                "mysql", "localhost", "3306", "testdb", "root", "encrypted_password"
+                "postgresql", "localhost", "5432", "testDB", "postgres", "encrypted_password"
         );
         connection.connect();
     }

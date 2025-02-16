@@ -5,10 +5,36 @@
 
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.acender.dbone</groupId>
+    <groupId>io.github.srujith2k</groupId>
     <artifactId>dbone-core</artifactId>
     <version>1.0.0</version>
     <packaging>jar</packaging>
+
+    <name>DBOne-Core</name>
+    <description>A powerful Java library for managing database connections securely.</description>
+    <url>https://github.com/Srujith2k/dbone-core</url>
+
+    <licenses>
+        <license>
+            <name>Apache License, Version 2.0</name>
+            <url>http://www.apache.org/licenses/LICENSE-2.0</url>
+            <distribution>repo</distribution>
+        </license>
+    </licenses>
+
+    <developers>
+        <developer>
+            <id>srujith</id>
+            <name>Srujith</name>
+            <email>srujith2k@gmail.com</email>
+        </developer>
+    </developers>
+
+    <scm>
+        <connection>scm:git:https://github.com/Srujith2k/dbone-core.git</connection>
+        <developerConnection>scm:git:ssh://github.com:Srujith2k/dbone-core.git</developerConnection>
+        <url>https://github.com/Srujith2k/dbone-core</url>
+    </scm>
 
     <properties>
         <java.version>23</java.version>
@@ -19,7 +45,10 @@
         <mysql.version>9.2.0</mysql.version>
         <postgresql.version>42.7.5</postgresql.version>
         <junit.version>5.11.4</junit.version>
-        <maven.javadoc.version>3.11.2</maven.javadoc.version>
+        <maven.javadoc.version>3.3.2</maven.javadoc.version>
+        <maven.gpg.version>1.6</maven.gpg.version>
+        <maven.source.version>3.2.1</maven.source.version>
+        <maven.deploy.version>3.1.3</maven.deploy.version>
     </properties>
 
     <dependencies>
@@ -77,19 +106,75 @@
                     <target>${java.version}</target>
                 </configuration>
             </plugin>
+
+            <!-- GPG Signing Plugin -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-gpg-plugin</artifactId>
+                <version>${maven.gpg.version}</version>
+                <executions>
+                    <execution>
+                        <id>sign-artifacts</id>
+                        <phase>verify</phase>
+                        <goals>
+                            <goal>sign</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+
+            <!-- JavaDoc Plugin -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-javadoc-plugin</artifactId>
                 <version>${maven.javadoc.version}</version>
                 <executions>
                     <execution>
-                        <phase>package</phase>
+                        <id>attach-javadocs</id>
                         <goals>
-                            <goal>javadoc</goal>
+                            <goal>jar</goal>
                         </goals>
                     </execution>
                 </executions>
             </plugin>
+
+            <!-- Source Plugin -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-source-plugin</artifactId>
+                <version>${maven.source.version}</version>
+                <executions>
+                    <execution>
+                        <id>attach-sources</id>
+                        <goals>
+                            <goal>jar</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+
+            <!-- Maven Central Publishing Plugin -->
+            <plugin>
+                <groupId>org.sonatype.central</groupId>
+                <artifactId>central-publishing-maven-plugin</artifactId>
+                <version>0.7.0</version>
+                <extensions>true</extensions>
+                <configuration>
+                    <publishingServerId>central</publishingServerId>
+                    <autoPublish>true</autoPublish>  <!-- Enables automatic publishing -->
+                    <waitUntil>published</waitUntil>  <!-- Waits until publishing is done -->
+                </configuration>
+            </plugin>
+
         </plugins>
     </build>
+
+    <!-- Distribution Management for Sonatype -->
+    <distributionManagement>
+        <repository>
+            <id>central</id>
+            <url>https://central.sonatype.com</url>
+        </repository>
+    </distributionManagement>
+
 </project>

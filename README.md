@@ -48,7 +48,7 @@ DBOne-Core is a powerful and flexible Java-based library designed to simplify da
 To use **DBOne-Core** in your project, add the following dependency to your `pom.xml`:
 ```xml
 <dependency>
-    <groupId>com.acender.dbone</groupId>
+    <groupId>io.github.srujith2k</groupId>
     <artifactId>dbone-core</artifactId>
     <version>1.0.0</version>
 </dependency>
